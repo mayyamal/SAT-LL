@@ -44,7 +44,7 @@ The main script is `scripts/attackFlow.sh`. All the steps are documented there. 
 # Attack flow
 The script `scripts/attackFlow.sh` executes all the necessary steps to perform the SAT-based locking and attack.
 
-The general flow is shown in the following Figure:
+The general flow is shown in the following figure:
 
 ![SAT-LL Flow](sat-ll.png)
 
@@ -79,10 +79,10 @@ The logic locking is executed with the SAT-based attack tool.
 It can perform Random Logic Locking (RLL) as well as Strong Logic Locking (SLL) with configurable *key-input* sizes.
 The encrypted output netlist is in `benchmarks/aes/4_bench_obf/yosys/aes_sbox.bench`.
 
-(!) The RLL using the RANE tool did not work due to missing files in the repository.
+:exclamation: The RLL using the RANE tool did not work due to missing files in the repository.
 
 
 ## SAT-based attack
 The SAT-based attack produces an output stored in `benchmarks/aes/4_bench_obf/yosys/statistics.txt`.
 If the attack is successful, it shows the key, the number of DIPs as well as the time needed for unlocking.
-(!) Unlocking with RANE must be done with additional modifications to the signal names as described in `scripts/attackFlow.sh`.
+:exclamation: Unlocking with RANE must be done with additional modifications to the signal names as described in `scripts/attackFlow.sh`.
