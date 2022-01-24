@@ -1,3 +1,3 @@
-read_blif /home/majmal01/repos/SAT-LL/benchmarks/ariane/3_bench_orig/dc/alu.blif
+read_blif /home/majmal01/repos/SAT-LL/benchmarks/aes/3_bench_orig/dc/aes_sbox.blif
 strash
-write_bench -l /home/majmal01/repos/SAT-LL/benchmarks/ariane/3_bench_orig/dc/alu.bench
+write_bench -l /home/majmal01/repos/SAT-LL/benchmarks/aes/3_bench_orig/dc/aes_sbox.bench
