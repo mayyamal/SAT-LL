@@ -15,6 +15,7 @@ set DIR_MODULE_SYNTH ${DIR_ARIANE}/2_assign_orig/yosys
 
 # NOTE (arine): when reading. sv files add `- sv` option
 #yosys read_verilog -sv ${DIR_MODULE_ORIG}/${MODULE}.sv
+# NOTE: Remove the package import  when synthesizing with Yosys
 yosys read_verilog  ${DIR_MODULE_ORIG}/${MODULE}.v
 
 

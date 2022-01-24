@@ -30,7 +30,7 @@ The logic locking is performed only on several combinational modules from both A
 The designs to be (un-)locked are separated in two folders, `benmchmarks\ariane` and `benmchmarks\aes`.
 The directory structure in both designs is the same.
 * The RTL file being locked is in the folder `1_rtl_orig`
-* The synthesized netlist in assignment level format is stored inn `2_assign_orig`. Depending on the tool used, all the consecutive files are stored either in `yosys` or `dc` subfolder.
+* The synthesized netlist in assignment format is stored inn `2_assign_orig`. Depending on the tool used, all the consecutive files are stored either in `yosys` or `dc` subfolder.
 * The netlist in `bench` format is stored in `3_bench_orig`
 * The locked netlist as well as the results from the unlocking are stored in `4_bench_obf`
 
@@ -42,7 +42,7 @@ The script `scripts/attackFlow.sh` executes all the necessary steps to perform t
 
 The general flow is shown in the following Figure:
 
-![SAT-LL Flow](image.png)
+![SAT-LL Flow](sat-ll.png)
 
 Let's take the `aes_sbox` module as an example, synthesized with Yosys.
 The original design is located in `benchmarks/aes/1_rtl_orig/aes_sbox.v`.
@@ -59,15 +59,15 @@ RANE tool can work with neltislt `bench` as well as in `verilog` format, however
 
 ### Yosys
 The synthesys with Yosys is done using the `yosys.tcl`
-The synthesized netlist is in assign level format in `benchmarks/aes/2_assign_orig/yosys/aes_sbox.v`.
+The synthesized netlist is in assignment format in `benchmarks/aes/2_assign_orig/yosys/aes_sbox.v`.
 See the script for additional comments.
 
 ### Synopsys DC
 The synthesys with Yosys is done using the `dc.tcl`
-The synthesized netlist is in assign level format.
+The synthesized netlist is in assignment format.
 
 ## Conversion to `bench`
-**Yosys/ABC** is used to do the conversion from assign level to `blif` to `bench`.
+**Yosys/ABC** is used to do the conversion from verilog assignment format to `blif` to `bench`.
 The original netlist is in `benchmarks/aes/3_bench_orig/yosys/aes_sbox.bench`
 
 ## Logic Locking
@@ -81,7 +81,6 @@ The encrypted output netlist is in `benchmarks/aes/4_bench_obf/yosys/aes_sbox.be
 ## SAT-based attack
 The SAT-based attack produces an output stored in `benchmarks/aes/4_bench_obf/yosys/statistics.txt`.
 If the attack is successful, it shows the key, the number of DIPs as well as the time needed for unlocking.
-
 (!) Unlocking with RANE must be done with additional modifications to the signal names as described in `scripts/attackFlow.sh`.
 =======
 # SAT-LL

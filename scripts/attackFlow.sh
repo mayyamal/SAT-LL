@@ -15,24 +15,29 @@ DIR_SCRIPTS=${HOME}/repos/SAT-LL/scripts
 
 # Adjust DIR_AES or DIR_ARIANE
 DIR_RTL_ORIG=${DIR_AES}/1_rtl_orig
-DIR_ASSIGN_ORIG=${DIR_AES}/2_assign_orig/yosys
-DIR_BENCH_ORIG=${DIR_AES}/3_bench_orig/yosys
-DIR_BENCH_OBF=${DIR_AES}/4_bench_obf/yosys
+DIR_ASSIGN_ORIG=${DIR_AES}/2_assign_orig/dc# yosys #dc
+DIR_BENCH_ORIG=${DIR_AES}/3_bench_orig/dc #yosys #dc
+DIR_BENCH_OBF=${DIR_AES}/4_bench_obf/dc #yosys #dc
 
 
 # Use any of the modules in the benchmark folder or add other (combinational) modules
-MODULE=aes_sbox
-#MODULE=alu
+#MODULE=aes_sbox
+MODULE=alu
 # Pass the key-input size as an argument or the fraction (0.05, 0.1, 0.25, 0.5)
 KEYS=$1
 
 # *** Synth with Yosys ***
 # Change the parameters in `yosys.tcl`
-${DIR_YOSYS}/yosys yosys.tcl
+#${DIR_YOSYS}/yosys yosys.tcl
+
+# *** Synth with DC ***
+# Execute `dc.tcl`
+# Change the folder paths above to `dc` subdirectories
 
 # *** Convert original to blif ***
 cd $DIR_YOSYS
-./yosys -o ${DIR_BENCH_ORIG}/${MODULE}.blif -S ${DIR_ASSIGN_ORIG}/${MODULE}.v
+./yosys -o ${DIR_BENCH_ORIG}/${MODULE}.blif -S /home/majmal01/repos/SAT-LL/benchmarks/ariane/2_assign_orig/dc/alu.v
+#${DIR_ASSIGN_ORIG}/${MODULE}.v
 
 # *** Convert original to bench ***
 # NOTE: modify the paths in the `blif2bench_orig` file accordingly!

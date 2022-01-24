@@ -17,7 +17,8 @@
 // Date: 19.03.2017
 // Description: Ariane ALU based on RI5CY's ALU
 
-//import ariane_pkg::*;
+// Remove the package when synthesizing with Yosys
+import ariane_pkg::*;
 
 module alu (
     input  fu_data_t                 fu_data_i,
