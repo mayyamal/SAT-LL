@@ -11,16 +11,20 @@ This repository performs a **SAT-based attack** on locked open-source designs: (
 
 ## Open-source SAT-based attack tools
 * Original SAT-based attack
+
 This attack was first described in 2015 in the paper [Evaluating the Security of Logic Encryption Algorithms](https://ieeexplore.ieee.org/document/7140252)
 The repository and further installation steps can be found [here](https://host15author@bitbucket.org/host15author/host15-logic-decryption).
 * RANE
+
 The RANE tool is described in the paper[RANE: An Open-Source Formal De-obfuscation Attack for Reverse Engineering of Logic Encrypted Circuits](https://dl.acm.org/doi/10.1145/3453688.3461760)
 The repository and further installation steps can be found [here](https://github.com/gate-lab/RANE).
 
 ## Additional tools for synthesis
 * Yosys
+
 The repository and further installation steps can be found [here](https://github.com/YosysHQ/yosys).
 * Synopsys DC (optional)
+
 Commercial tool
 
 # Directory structure
@@ -35,7 +39,7 @@ The directory structure in both designs is the same.
 * The locked netlist as well as the results from the unlocking are stored in `4_bench_obf`
 
 ## Scripts
-The main script is `scripts/attackFlow.sh`. All the steps are documented there. The additional files are in the same `script` folder.
+The main script is `scripts/attackFlow.sh`. All the steps are documented there. The additional files are in the same `scripts` folder.
 
 # Attack flow
 The script `scripts/attackFlow.sh` executes all the necessary steps to perform the SAT-based locking and attack.
@@ -48,14 +52,14 @@ Let's take the `aes_sbox` module as an example, synthesized with Yosys.
 The original design is located in `benchmarks/aes/1_rtl_orig/aes_sbox.v`.
 
 ## Disclaimer
-While performing the (un-)locking with both tools (original SAT and RANE), some manual changes had to be performed on the files in different formats in order for the attacks to succeed.
+While performing the (un-)locking with both tools (original SAT and RANE), some manual changes have to be performed on the files in different formats in order for the attacks to succeed.
 The scripts contain additional comments.
 
 
 ## Synthesys
 Before the modules can be locked, they have to be synthesized first.
 The SAT-attack tool excepts netlists in `bench` format.
-RANE tool can work with neltislt `bench` as well as in `verilog` format, however, this flow cover only the `bench` format, since that is the only output from the SAT-based tool.
+RANE tool can work with neltislts  in `bench` as well as in `verilog` format, however, this flow covers only the `bench` format, since that is the only output from the SAT-based tool.
 
 ### Yosys
 The synthesys with Yosys is done using the `yosys.tcl`
@@ -82,6 +86,3 @@ The encrypted output netlist is in `benchmarks/aes/4_bench_obf/yosys/aes_sbox.be
 The SAT-based attack produces an output stored in `benchmarks/aes/4_bench_obf/yosys/statistics.txt`.
 If the attack is successful, it shows the key, the number of DIPs as well as the time needed for unlocking.
 (!) Unlocking with RANE must be done with additional modifications to the signal names as described in `scripts/attackFlow.sh`.
-=======
-# SAT-LL
-SAT-based attacks on RLL
