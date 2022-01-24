@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # General
 
 This repository performs a **SAT-based attack** on locked open-source designs: (1) modules from the RISC-V Ariane core and (2) modules from an AES core. The attacks are executed using two open-source tools: (1) the original SAT-based attack tool and (2) the RANE tool.
@@ -82,3 +83,7 @@ The SAT-based attack produces an output stored in `benchmarks/aes/4_bench_obf/yo
 If the attack is successful, it shows the key, the number of DIPs as well as the time needed for unlocking.
 
 (!) Unlocking with RANE must be done with additional modifications to the signal names as described in `scripts/attackFlow.sh`.
+=======
+# SAT-LL
+SAT-based attacks on RLL
+>>>>>>> 9774f1b10f83bf5b9ed766475ea0ab4f1d1c5c96
