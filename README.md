@@ -16,7 +16,7 @@ This attack was first described in 2015 in the paper [Evaluating the Security of
 The repository and further installation steps can be found [here](https://host15author@bitbucket.org/host15author/host15-logic-decryption).
 * RANE
 
-The RANE tool is described in the paper[RANE: An Open-Source Formal De-obfuscation Attack for Reverse Engineering of Logic Encrypted Circuits](https://dl.acm.org/doi/10.1145/3453688.3461760)
+The RANE tool is described in the paper [RANE: An Open-Source Formal De-obfuscation Attack for Reverse Engineering of Logic Encrypted Circuits](https://dl.acm.org/doi/10.1145/3453688.3461760)
 The repository and further installation steps can be found [here](https://github.com/gate-lab/RANE).
 
 ## Additional tools for synthesis
@@ -52,7 +52,7 @@ Let's take the `aes_sbox` module as an example, synthesized with Yosys.
 The original design is located in `benchmarks/aes/1_rtl_orig/aes_sbox.v`.
 
 ## Disclaimer
-While performing the (un-)locking with both tools (original SAT and RANE), some manual changes have to be performed on the files in different formats in order for the attacks to succeed.
+While performing the (un-)locking with both tools (original SAT and RANE), some manual changes have to be done on the files in different formats in order for the attacks to succeed.
 The scripts contain additional comments.
 
 
@@ -62,12 +62,12 @@ The SAT-attack tool excepts netlists in `bench` format.
 RANE tool can work with neltislts  in `bench` as well as in `verilog` format, however, this flow covers only the `bench` format, since that is the only output from the SAT-based tool.
 
 ### Yosys
-The synthesys with Yosys is done using the `yosys.tcl`
+The synthesys with Yosys is done using the `yosys.tcl`.
 The synthesized netlist is in assignment format in `benchmarks/aes/2_assign_orig/yosys/aes_sbox.v`.
 See the script for additional comments.
 
 ### Synopsys DC
-The synthesys with Yosys is done using the `dc.tcl`
+The synthesys with Synopsys DC is done using the `dc.tcl`
 The synthesized netlist is in assignment format.
 
 ## Conversion to `bench`
