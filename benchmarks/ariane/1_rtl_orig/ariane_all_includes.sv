@@ -1,3 +1,4 @@
+//Needed for yosys. Taken from ariane_pkg and riscv_pkg
 typedef enum logic[1:0] {
   PRIV_LVL_M = 2'b11,
   PRIV_LVL_S = 2'b01,
