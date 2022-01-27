@@ -1,4 +1,4 @@
-# adjust
+# adjust the local paths
 set DIR_AES /home/majmal01/repos/SAT-LL/benchmarks/aes
 set DIR_ARIANE /home/majmal01/repos/SAT-LL/benchmarks/ariane
 
